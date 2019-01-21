@@ -35,6 +35,22 @@ class SQLiteHelper:
         if rows:
             return rows[0][1]
 
+    def get_all_ingredients(self):
+        """
+        Returns all ingredients from db.
+
+        :returns:List of ingredients
+        :rtype: ``list``
+        """
+        cur = self.conn.cursor()
+
+        query = "SELECT * FROM ingredient"
+
+        cur.execute(query)
+        rows = cur.fetchall()
+
+        return rows
+
     def get_recipe_id(self, recipe_name):
         cur = self.conn.cursor()
 
