@@ -7,7 +7,7 @@ Usage:
 
 from setuptools import setup
 
-APP = ['Recipe.py']
+APP = ['RecipeApp.py']
 DATA_FILES = ['recipe.db']
 OPTIONS = {'argv_emulation': True,
            'includes': ['six', 'appdirs', 'packaging', 'packaging.version', 'packaging.specifiers',
