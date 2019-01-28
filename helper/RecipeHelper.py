@@ -510,6 +510,10 @@ class RecipeHelper:
         for k, _ in ingredient_to_all.items():
             try:
                 q = ingredient_to_quantity[k]
+            except KeyError:
+                pass
+
+            try:
                 c = ingredient_to_count[k]
             except KeyError:
                 pass
