@@ -415,9 +415,21 @@ class RecipeHelper:
         RecipeHelper.grid_ingredient_row(ingredient_row)
 
     def add_recipe_ingredients(self, w, recipe_name, curr_ingredients):
+        """
+        Add recipe ingredients to widget.
+
+        :param w: Widget root
+        :rtype: ``tkinter.Tk``
+        :param recipe_name: Recipe name
+        :type: ``str``
+        :param curr_ingredients: Stack of ingredients
+        :rtype: ``list``
+        :return:
+        """
 
         # Empty curr_ingredients stack
-        for row_ingredient in curr_ingredients:
+        num_ingredients = len(curr_ingredients)
+        for i in range(num_ingredients):
             RecipeHelper.remove_ingredient_row(curr_ingredients, min_threshold=0)
 
         # Get recipe ingredients and init row_id
@@ -510,6 +522,10 @@ class RecipeHelper:
         for k, _ in ingredient_to_all.items():
             try:
                 q = ingredient_to_quantity[k]
+            except KeyError:
+                pass
+
+            try:
                 c = ingredient_to_count[k]
             except KeyError:
                 pass
