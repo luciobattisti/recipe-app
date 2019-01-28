@@ -54,10 +54,12 @@ class SQLiteHelper:
     def get_recipe_id(self, recipe_name):
         cur = self.conn.cursor()
 
+        recipe_name = recipe_name.replace("'", "''")
+
         query = """
-         SELECT * FROM recipe
-         WHERE name = '{0}';
-         """.format(recipe_name)
+        SELECT * FROM recipe
+        WHERE name = '{0}';
+        """.format(recipe_name)
 
         cur.execute(query)
         rows = cur.fetchall()
