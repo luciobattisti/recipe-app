@@ -9,11 +9,22 @@ import sqlite3
 from tkinter import *
 from db.sqlite_helper.SQLiteHelper import SQLiteHelper
 from helper.RecipeHelper import RecipeHelper
+from pathlib import Path
 import pint
-import _sysconfigdata_m_darwin_darwin
+import sys
+import os
+
+if getattr( sys, "frozen", False ) :
+        # print("running in a bundle")
+        # print(sys._MEIPASS)
+        home = str(Path.home())
+        DB = os.path.join(home, ".recipe-app", "db", "recipe.db")
+else:
+        # print("running live")
+        DB = "./recipe.db"
 
 # Global variables
-DB = "recipe.db"
+
 ureg = pint.UnitRegistry()
 units = {"tbs": ureg.tbs,
          "fl oz": ureg.floz,
