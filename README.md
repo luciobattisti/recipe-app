@@ -1,10 +1,33 @@
 # recipe-app
 
-## Creating standalone Mac OS X application 
+## Installation
+
+Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+## Create environment and install dependencies
 
 ```bash
-source activate recipe_app
-rm -rf build dist
-python setup.py py2app
+
+conda create -n recipe-env -y python=3.6.7 jupyter ipykernel
+conda activate
+pip install -e .
+
 ```
 
+## Run
+
+```bash
+
+python RecipeApp.py
+
+```
+
+### MacOs
+
+```bash
+
+cp -r recipe-app $HOME/Applications
+
+```
+
+Then click on recipe-app.command

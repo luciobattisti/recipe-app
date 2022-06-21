@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import filedialog
 from collections import Counter
 import random
+import time
 
 # Functions
 flatten = lambda l: [item for sublist in l for item in sublist]
@@ -256,6 +257,7 @@ class RecipeHelper:
 
         # Starting ingredient row is 3 because there are 3 rows on top
         ingredient_row = self.create_ingredient_row(w, 3)
+
         curr_ingredients = [ingredient_row]
 
         sbutton = ttk.Button(w, text="Save Recipe",
@@ -385,6 +387,7 @@ class RecipeHelper:
 
         ingredient_row = self.create_ingredient_row(w, 3)
         curr_ingredients = [ingredient_row]
+        # curr_ingredients = []
 
         rvar = StringVar()
         rmen = OptionMenu(w, rvar, *self.recipes, command=lambda name: self.add_recipe_ingredients(w, name, curr_ingredients))
@@ -413,6 +416,8 @@ class RecipeHelper:
         ulbl.grid(column=2, row=2)
 
         RecipeHelper.grid_ingredient_row(ingredient_row)
+
+
 
     def add_recipe_ingredients(self, w, recipe_name, curr_ingredients):
         """
@@ -447,6 +452,8 @@ class RecipeHelper:
 
              # Add newly created ingredient row
              curr_ingredients.append(ingredient_row)
+
+
 
     def delete_recipe(self, w, nvar):
         """
