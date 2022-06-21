@@ -1,18 +1,33 @@
 # recipe-app
 
-Install Anaconda 64
+## Installation
 
+Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
-
-## Creating standalone macOS application 
+## Create environment and install dependencies
 
 ```bash
-source activate recipe_app
-rm -rf build dist
-pyinstaller RecipeApp.py
+
+conda create -n recipe-env -y python=3.6.7 jupyter ipykernel
+conda activate
+pip install -e .
+
 ```
 
-For more info please vist: [Pyinstaller](https://www.pyinstaller.org/)
+## Run
 
-**Due to a non-trivial bug the above solution may not work on macOS Mojave.**
+```bash
 
+python RecipeApp.py
+
+```
+
+### MacOs
+
+```bash
+
+cp -r recipe-app $HOME/Applications
+
+```
+
+Then click on recipe-app.command
